@@ -2,7 +2,6 @@ package lt.techin.example;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class RegisterPage extends BasePage {
 
@@ -20,9 +19,12 @@ public class RegisterPage extends BasePage {
 
     // Error message selectors (modify these based on your application's actual selectors)
     public By usernameErrorMessage = By.cssSelector(".dowWKa.sc-ktJcvw");  // Example
-    public By emailErrorMessage = By.cssSelector("div:nth-of-type(3) > .lJCWn.sc-jGKwVr");        // Example
+    public By emailErrorMessage = By.cssSelector("div:nth-of-type(3) > .lJCWn.sc-jGKwVr"); // Example
     public By passwordErrorMessage = By.cssSelector(".dowWKa.sc-ktJcvw");  // Example
     public By confirmPasswordErrorMessage = By.cssSelector(".sc-ktJcvw"); // Example
+
+    // Selector for successful registration indicator
+    public By registrationSuccessMessage = By.cssSelector(".success-message"); // Example
 
     // Methods
     public void setClickSignUpButton() {
@@ -64,6 +66,11 @@ public class RegisterPage extends BasePage {
 
     public boolean isConfirmPasswordErrorMessagePresent() {
         return driver.findElements(confirmPasswordErrorMessage).size() > 0;
+    }
+
+    // Method to check if registration was successful
+    public boolean isUserRegistered() {
+        return driver.findElements(registrationSuccessMessage).size() > 0;
     }
 }
 

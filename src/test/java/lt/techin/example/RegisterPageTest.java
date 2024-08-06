@@ -110,7 +110,4 @@ public class RegisterPageTest extends BaseTest {
 
         // Verify the presence of confirm password error message
         assertTrue(registerPage.isConfirmPasswordErrorMessagePresent(), "Confirm password error message should be present for mismatched confirm password.");
-    }
-}
-
-
+    }}
