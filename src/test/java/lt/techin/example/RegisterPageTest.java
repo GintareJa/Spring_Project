@@ -1,6 +1,8 @@
 package lt.techin.example;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.apache.commons.lang3.RandomStringUtils;
 
@@ -29,6 +31,8 @@ public class RegisterPageTest extends BaseTest {
     }
 
     @Test
+    @Tag("valid_Test")
+    @DisplayName("Register with Random Valid Credentials")
     public void registerWithRandomValidCredentials() {
         String username = getRandomString(8);
         String email = getRandomEmail();
@@ -44,6 +48,8 @@ public class RegisterPageTest extends BaseTest {
     }
 
     @Test
+    @Tag("invalid_Test")
+    @DisplayName("Register with Random Invalid Name")
     public void registerWithRandomInvalidName() {
         String username = getRandomString(1);  // Invalid name
         String email = getRandomEmail();
@@ -61,6 +67,8 @@ public class RegisterPageTest extends BaseTest {
     }
 
     @Test
+    @Tag("invalid_Test")
+    @DisplayName("Register with Random Invalid Email")
     public void registerWithRandomInvalidEmail() {
         String username = getRandomString(8);
         String email = getRandomString(5);  // Invalid email
@@ -78,6 +86,8 @@ public class RegisterPageTest extends BaseTest {
     }
 
     @Test
+    @Tag("invalid_Test")
+    @DisplayName("Register with Random Invalid Password")
     public void registerWithRandomInvalidPassword() {
         String username = getRandomString(8);
         String email = getRandomEmail();
@@ -95,17 +105,19 @@ public class RegisterPageTest extends BaseTest {
     }
 
     @Test
+    @Tag("invalid_Test")
+    @DisplayName("Register with Random Invalid Confirm Password")
     public void registerWithRandomInvalidConfirmPassword() {
         String username = getRandomString(8);
         String email = getRandomEmail();
         String password = getRandomPassword(8);
-        String invalidConfirmPassword = getRandomPassword(8); // Ensure confirm password is different
+        String invalidConfirmPassword = getRandomPassword(8);
 
         registerPage.setClickSignUpButton();
         registerPage.setInputUserName(username);
         registerPage.setInputEmail(email);
         registerPage.setInputPassword(password);
-        registerPage.setConfirmPassword(invalidConfirmPassword); // Different confirm password
+        registerPage.setConfirmPassword(invalidConfirmPassword);
         registerPage.setClickCreateAccountButton();
 
         // Verify the presence of confirm password error message

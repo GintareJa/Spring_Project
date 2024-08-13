@@ -17,7 +17,7 @@ public class RegisterPage extends BasePage {
     public By confirmPassword = By.cssSelector("input[name='repeatPassword']");
     public By clickCreateAccountButton = By.cssSelector(".fCZwOC.sc-hZDzol");
 
-    // Error message selectors (modify these based on your application's actual selectors)
+    // Error message selectors
     public By usernameErrorMessage = By.cssSelector(".dowWKa.sc-ktJcvw");  // Example
     public By emailErrorMessage = By.cssSelector("div:nth-of-type(3) > .lJCWn.sc-jGKwVr"); // Example
     public By passwordErrorMessage = By.cssSelector(".dowWKa.sc-ktJcvw");  // Example

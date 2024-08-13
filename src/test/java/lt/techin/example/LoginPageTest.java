@@ -1,6 +1,8 @@
 package lt.techin.example;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.apache.commons.lang3.RandomStringUtils;
 
@@ -29,9 +31,11 @@ public class LoginPageTest extends BaseTest {
     }
 
     @Test
+    @Tag("valid_Test")
+    @DisplayName("Login with valid credentials")
     public void loginWithValidCredentials() throws InterruptedException {
-        String email = "validUser@mail.com";  // Use a valid email
-        String password = "ValidPassword123*";  // Use a valid password
+        String email = "validUser@mail.com";
+        String password = "ValidPassword123*";
 
         loginPage.setInputEmail(email);
         loginPage.setInputPassword(password);
@@ -42,6 +46,8 @@ public class LoginPageTest extends BaseTest {
     }
 
     @Test
+    @Tag("invalid_Test")
+    @DisplayName("Login with invalid email")
     public void loginWithInvalidEmail() throws InterruptedException {
         String email = getRandomString(5);  // Invalid email
         String password = "ValidPassword123*";
@@ -55,6 +61,8 @@ public class LoginPageTest extends BaseTest {
     }
 
     @Test
+    @Tag("invalid_Test")
+    @DisplayName("Login with invalid password")
     public void loginWithInvalidPassword() throws InterruptedException {
         String email = "validUser@mail.com";
         String password = getRandomPassword(3);  // Invalid password
@@ -68,6 +76,8 @@ public class LoginPageTest extends BaseTest {
     }
 
     @Test
+    @Tag("invalid_Test")
+    @DisplayName("Login with unregister Email")
     public void loginWithUnregisteredEmail() throws InterruptedException {
         String email = getRandomEmail();  // Unregistered email
         String password = "ValidPassword123*";
@@ -81,6 +91,8 @@ public class LoginPageTest extends BaseTest {
     }
 
     @Test
+    @Tag("invalid_Test")
+    @DisplayName("Login with empty credentials")
     public void loginWithEmptyCredentials() throws InterruptedException {
         loginPage.setClickSignInButton();
         Thread.sleep(3000);
@@ -89,9 +101,11 @@ public class LoginPageTest extends BaseTest {
     }
 
     @Test
+    @Tag("valid_Test")
+    @DisplayName("Log out")
     public void logout() throws InterruptedException {
-        String email = "validUser@mail.com";  // Use a valid email
-        String password = "ValidPassword123*";  // Use a valid password
+        String email = "validUser@mail.com";
+        String password = "ValidPassword123*";
 
         loginPage.setInputEmail(email);
         loginPage.setInputPassword(password);
